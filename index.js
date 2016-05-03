@@ -40,6 +40,7 @@ window.setTimeout(function () {
         arguments[0].className="p0";
     })
 },8000);
+// slide();
 function slide() {
     [].forEach.call(oLis,function () {
         var oLi=arguments[0];
