@@ -1,6 +1,10 @@
 /**
  * Created by jinxin on 4/25/2016.
  */
+document.addEventListener("touchmove",function (e) {
+    e.preventDefault();
+
+},false);
 var main=document.querySelector("#main");
 var oLis=document.querySelectorAll("#content>li");
 var step=3/4;
