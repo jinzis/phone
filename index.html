@@ -5,32 +5,50 @@
     <title>Title</title>
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0">
-    <link rel="stylesheet" href="index1.css">
-    <!--<link rel="stylesheet" href="animate.css">-->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animate.css">
 </head>
 <body>
 <div id="main">
-    <div id="sound">
-        <audio src="Adele.mp3" loop id="music"></audio>
-    </div>
-    <div id="login">
-        <div class="pass"></div>
-        <div class=" fingerprint"><img src="img/zhiwen.png" alt=""></div>
-        <div class="line"></div>
-    </div>
+    <div id="musicBtn"></div>
+    <audio id="audioDemo" preload="none" loop>
+        <source src="song.mp3" type="audio/mpeg"/>
+        <source src="song.wav" type="audio/wav"/>
+        <source src="song.ogg" type="audio/ogg"/>
+        Your browser is not support audio tag~~
+    </audio>
     <ul id="content">
         <li class="home-page zIndex">
             <div class="page1">
-                <div>金鑫的简历</div>
-                <div class="a1"><img src="" alt=""></div>
+                <div class="name animated zoomInDown">简历</div>
+                <div class="a1">
+                    <div class="outerSqu">
+                        <div class="squ"></div>
+                        <div class="innerSqu"></div>
+                        <div class=" squ squ1"></div>
+                        <div class="squ squ2"></div>
+                        <div class="squ squ3"></div>
+                        <div class="squ squ4"></div>
+                    </div>
+                    </div>
                 <div class="bubble">
-                    <span>专注</span>
-                    <span>上进</span>
-                    <span>刻苦</span>
-                    <span>积极</span>
-                    <span>坚持</span>
+                    <p class="animated bounceInLeft">Hi!</p>
+                    <p class="animated bounceInRight">我叫金鑫</p>
+                    <p class="animated bounceInDown">来自辽宁，想找一份前端工程师的职位</p>
                 </div>
             </div>
+            <div class="arrow"></div>
+        </li>
+        <li>
+            <div class="nature">
+                <h3 class="animated zoomInDown">性格特点</h3>
+                <div>积极乐观</div>
+                <div>专注</div>
+                <div>善于沟通</div>
+                <div>诚恳</div>
+                <div class="animated slideInUp">我的座右铭：天下无难事，只怕有心人</div>
+            </div>
+
             <div class="arrow"></div>
         </li>
         <li class="p-data">
@@ -38,9 +56,9 @@
                 <div>个人资料</div>
                 <h6>姓名<span>金鑫</span></h6>
                 <h6>性别<span>女</span></h6>
-                <h6>年龄<span>××</span></h6>
+                <h6>年龄<span>26</span></h6>
                 <h6>现居地<span>昌平区回龙观镇</span></h6>
-                <h6>求职意向<span>移动端开发</span></h6>
+                <h6>求职意向<span>前端开发</span></h6>
                 <h6>联系电话<span>13021989006</span></h6>
                 <h6>邮箱<span>1213833565@qq.com</span></h6>
             </div>
@@ -49,56 +67,47 @@
         <li>
             <div class="experience">
                 <div class="date">
-                    <p>2013.7-2014.12</p>
-                    <p>2015.1-2015.11</p>
-                    <p>2015.11-2016.3</p>
+                    <p>2013.7-2015.3</p>
+                    <p>2015.3-至今</p>
                 </div>
                 <div class="content">
-                    <h6 class="head">333<span>444</span></h6>
-                    <h6 class="content1">55555555555</h6>
-                    <h6 class="head">5555<span>6666</span></h6>
-                    <h6 class="content1">777</h6>
-                    <h6 class="head">88<span>99测试</span></h6>
-                    <h6 class="content1">11111</h6>
+                    <h6 class="head">北京盈进科技</h6>
+                    <h6>测试</h6>
+                    <h6 class="content1">网页、App测试</h6>
+                    <h6 class="head">北京联云格科技</h6>
+                    <h6>前端开发</h6>
+                    <h6 class="content1">HTML、CSS、JavaScript、AJAX实现静态页面</h6>
                 </div>
-                <p class="title">工作经验</p>
+                <p class="title animated swing">工作经验</p>
                 <p class="line1"></p>
                 <p class="line2"></p>
                 <div class=" yun yun1">
-                    <p></p>
-                    <p></p>
                 </div>
                 <div class=" yun yun2">
-                    <p></p>
-                    <p></p>
-                </div>
-                <div class=" yun yun3">
-                    <p></p>
-                    <p></p>
                 </div>
             </div>
             <div class="arrow"></div>
         </li>
         <li>
-            <div class="skill">
-                <p>专业技能</p>
-                <h6>Jquery</h6>
-                <h6>Node.js</h6>
-                <h6>React</h6>
-                <div>JavaScript</div>
-                <div>HTML5+CSS3</div>
-                <div>AJAX</div>
-            </div>
+            <p class="titleZ animated swing">专业技能</p>
+            <div id="container" ></div>
             <div class="arrow"></div>
         </li>
         <li>
             <div class="over">
-                <h6>项目</h6>
-                <p></p>
+                <h6>Thank&nbsp;You</h6>
+                <div class="cir">
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;期待您的回复&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                手机号:13021989006&nbsp;&nbsp;
+                邮箱：1213833565@qq.com
+                    </p>
+                    </div>
             </div>
         </li>
     </ul>
 </div>
 </body>
 </html>
-<script type="text/javascript" charset="UTF-8" src="index.js"></script>
+<script src="http://cdn.hcharts.cn/jquery/jquery-1.8.3.min.js"></script>
+<script src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script>
+<script type="text/javascript" charset="UTF-8" src="resume.js"></script>
