@@ -1,16 +1,18 @@
-
-var main=document.querySelector("#main");
-var oLis=document.querySelectorAll("#content>li");
-var step=3/4;
-var desW=640;
-var desH=960;
-var winW=document.documentElement.clientWidth;
-var winH=document.documentElement.clientHeight;
-if(winW/winH<desW/desH){
-    main.style.webkitTransform="scale("+winH/desH+")";
-}else{
-    main.style.webkitTransform="scale("+winW/desW+")";
+// 屏幕适配
+var main = document.querySelector("#main");
+console.log(main);
+var oLis = document.querySelectorAll("#content>li");
+var step = 3 / 4;
+var desW = 640;
+var desH = 960;
+var winW = document.documentElement.clientWidth;
+var winH = document.documentElement.clientHeight;
+if (winW / winH < desW / desH) {
+    main.style.webkitTransform = "scale(" + winH / desH + ")";
+} else {
+    main.style.webkitTransform = "scale(" + winW / desW + ")";
 }
+//背景音乐
 var audioDemo = document.querySelector("#audioDemo"), musicBtn = document.querySelector("#musicBtn");
 window.setTimeout(function () {
     audioDemo.play();
@@ -27,20 +29,48 @@ window.setTimeout(function () {
         audioDemo.pause();
         musicBtn.className = "";
     }, false);
-}, 1000);
-    slide();
+}, 2000);
+//预加载
+function fnLoad() {
+    var arr = ['arr.png', 'back1.jpg', 'smile.png'];
+    var loading = document.querySelector("#loading");
+    var process = document.querySelector(".process");
+    var n = 0;
+    arr.forEach(function () {
+        var oImg = new Image();
+        oImg.src = "img/" + arguments[0];
+        oImg.onload = function () {
+            n++;
+            process.style.width = n / arr.length * 100 + "%";
+            process.addEventListener("webkitTransitionEnd", function () {
+                this.style.webkitTransition = "";
+            }, false);
+            if (n == arr.length && loading) {
+                window.setTimeout(function () {
+                    main.removeChild(loading);
+                }, 1000);
+
+            }
+        }
+    })
+}
+fnLoad();
+//滑屏
 function slide() {
-    [].forEach.call(oLis,function () {
-        var oLi=arguments[0];
-        oLi.index=arguments[1];
-        oLi.addEventListener("touchstart",start,false);
-        oLi.addEventListener("touchmove",move,false);
-        oLi.addEventListener("touchend",end,false);
+    [].forEach.call(oLis, function () {
+        var oLi = arguments[0];
+        oLi.index = arguments[1];
+        oLi.addEventListener("touchstart", start, false);
+        oLi.addEventListener("touchmove", move, false);
+        oLi.addEventListener("touchend", end, false);
     });
+    //手指按下
     function start(e) {
-        this.startX=e.touches[0].pageX;
-        this.startY=e.touches[0].pageY;
+        this.startX = e.touches[0].pageX;
+        this.startY = e.touches[0].pageY;
     }
+
+    //手指滑动
     function move(e) {
         e.preventDefault();
         this.flag = true;
@@ -68,38 +98,42 @@ function slide() {
         }
         oLis[this.preIndex].className = "zIndex";
         oLis[this.preIndex].style.display = "block";
-        var t=this.firstElementChild;
-        var oPs=t.getElementsByTagName("h6");
-        [].forEach.call(oPs,function () {
-            arguments[0].className="";
+        var t = this.firstElementChild;
+        var oPs = t.getElementsByTagName("h6");
+        [].forEach.call(oPs, function () {
+            arguments[0].className = "";
         });
         this.style.webkitTransform = "translate(0," + change + "px) scale(" + (1 - Math.abs(change / winH) * step) + ")";
     }
+
+//滑动结束
     function end() {
-        if(this.flag){
-            oLis[this.preIndex].style.webkitTransform="translate(0,0)";
-            oLis[this.preIndex].style.webkitTransition="0.3s";
-            oLis[this.preIndex].addEventListener("webkitTransitionEnd",function () {
-                this.style.webkitTransition="";
-                var t=this.firstElementChild;
-                var oPs=t.getElementsByTagName("h6");
-                var _this=this;
-                [].forEach.call(oPs,function () {
-                    arguments[0].className="p"+_this.index;
+        if (this.flag) {
+            oLis[this.preIndex].style.webkitTransform = "translate(0,0)";
+            oLis[this.preIndex].style.webkitTransition = "0.3s";
+            oLis[this.preIndex].addEventListener("webkitTransitionEnd", function () {
+                this.style.webkitTransition = "";
+                var t = this.firstElementChild;
+                var oPs = t.getElementsByTagName("h6");
+                var _this = this;
+                [].forEach.call(oPs, function () {
+                    arguments[0].className = "p" + _this.index;
 
                 })
-            },false);
-            this.flag=false;
+            }, false);
+            this.flag = false;
         }
 
     }
 }
+slide();
+//图表
 $(function () {
 
     var colors = Highcharts.getOptions().colors,
-        categories = ['HTML+CSS', 'JavaScript', 'Ajax', 'jQuery','Bootstrap', 'Node.js','AngularJs','React'],
+        categories = ['HTML+CSS', 'JavaScript', 'Ajax', 'jQuery', 'Bootstrap', 'Node.js'],
         name = '职业技能',
-        color=colors[1],
+        color = colors[1],
         data = [{
             y: 90,
             color: colors[0],
@@ -109,7 +143,7 @@ $(function () {
         }, {
             y: 75,
             color: colors[9],
-            fontSize:'30px',
+            fontSize: '30px',
             drilldown: {
                 name: 'JavaScript',
             }
@@ -138,29 +172,14 @@ $(function () {
             },
 
             {
-                y: 30,
+                y: 20,
                 color: colors[5],
                 drilldown: {
                     name: 'Node.js',
 
                 }
             },
-            {
-                y: 20,
-                color: colors[6],
-                drilldown: {
-                    name: 'AngularJs',
 
-                }
-            },
-            {
-                y: 20,
-                color: colors[8],
-                drilldown: {
-                    name: 'React',
-
-                }
-            }
         ];
 
     function setChart(name, categories, data, color) {
@@ -175,32 +194,33 @@ $(function () {
         }, false);
         chart.redraw();
     }
+
     var chart = $('#container').highcharts({
             chart: {
                 type: 'column',
-                fontSize : '90px',
+                fontSize: '90px',
                 backgroundColor: 'rgba(0,0,0,0)'
 
             },
             title: {
                 text: '我的职业技能',
-                style:{'fontSize' : '25px'}
+                style: {'fontSize': '25px'}
             },
             xAxis: {
                 categories: categories,
-                style : {
-                    'fontSize' : '20px'
+                style: {
+                    'fontSize': '20px'
                 }
             },
             yAxis: {
                 title: {
                     text: '熟练度',
-                    style:{'fontSize' : '18px','color':'black'}
+                    style: {'fontSize': '18px', 'color': 'black'}
                 }
             },
-            legend : {
-                itemStyle : {
-                    'fontSize' : '20px'
+            legend: {
+                itemStyle: {
+                    'fontSize': '20px'
                 }
             },
             plotOptions: {
@@ -211,27 +231,14 @@ $(function () {
                         color: colors[1],
                         style: {
                             fontWeight: 'bold',
-                            fontSize : '18px'
+                            fontSize: '18px'
                         },
-                        formatter: function() {
-                            return this.y +'%';
+                        formatter: function () {
+                            return this.y + '%';
                         }
                     }
                 }
             },
-
-            // tooltip: {
-            //     formatter: function() {
-            //         var point = this.point,
-            //             s = this.x +':<b>'+ this.y +'%';
-            //         if (point.drilldown) {
-            //             s += 'Click to view '+ point.category +' versions';
-            //         } else {
-            //             s += 'Click to return to browser brands';
-            //         }
-            //         return s;
-            //     }
-            // },
             series: [{
                 name: name,
                 data: data,
@@ -241,9 +248,5 @@ $(function () {
                 enabled: false,
             }
         })
-        .highcharts(); // return chart
+        .highcharts();
 });
-
-
-
-
