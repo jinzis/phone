@@ -1,4 +1,5 @@
 // 屏幕适配
+e.preventDefault();
 var main = document.querySelector("#main");
 console.log(main);
 var oLis = document.querySelectorAll("#content>li");
