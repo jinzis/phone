@@ -20,7 +20,7 @@ ul, li {
     list-style: none;
 }
 
-h6 {
+h6,h3{
     font-weight: normal;
 }
 
@@ -34,7 +34,7 @@ h6 {
     transform-origin: top;
     -webkit-transform-origin: top;
 }
-
+/*music style*/
 #musicBtn {
     display: none;
     position: absolute;
@@ -75,7 +75,7 @@ h6 {
         transform: rotate(360deg);
     }
 }
-
+/*loading style*/
 #loading {
     width: 100%;
     height: 100%;
@@ -104,7 +104,7 @@ h6 {
     -webkit-transition: 0.5s;
 
 }
-
+/*firstPage style*/
 .outerSqu {
     perspective: 200px;
 }
@@ -116,7 +116,7 @@ h6 {
     top: 0;
     width: 250px;
     height: 250px;
-    border: 5px solid #ADD8E6;
+    border: 1px solid #ADD8E6;
     transform-style: preserve-3d;
     transform-origin: center center;
     animation: rotateMove 1.5s;
@@ -216,7 +216,7 @@ h6 {
 #main ul li.zIndex {
     z-index: 6;
 }
-
+/*arrow style*/
 .arrow {
     background: url("img/arr.png") no-repeat;
     position: absolute;
@@ -305,7 +305,7 @@ h6 {
 .bubble p:nth-child(3) {
     animation-delay: 0.7s;
 }
-
+/*twoPage style*/
 .nature h3 {
     position: absolute;
     width: 100%;
@@ -372,7 +372,7 @@ h6 {
     height: 150px;
     line-height: 150px;
 }
-
+/*threePage style*/
 .data {
     font-size: 40px;
     color: #000;
@@ -497,13 +497,13 @@ h6 {
         transform: translate(1000px, 0)
     }
 }
-
+/*fourPage style*/
 .date p {
     width: 160px;
     color: #ADD8E6;
     font-size: 35px;
     position: absolute;
-    right: 30px;
+    right: 50px;
 }
 
 .date p:nth-child(1) {
@@ -513,9 +513,8 @@ h6 {
 .date p:nth-child(2) {
     top: 550px
 }
-
 .experience .line1 {
-    width: 45%;
+    width: 55%;
     height: 5px;
     background: #ffffff;
     position: absolute;
@@ -532,7 +531,7 @@ h6 {
     top: 250px;
 }
 
-.yun {
+.circle {
     position: absolute;
     left: 370px;
     width: 50px;
@@ -542,20 +541,20 @@ h6 {
     background-color: #ADD8E6;
 }
 
-.yun1 {
+.circle1 {
     top: 350px;
 }
 
-.yun2 {
+.circle2 {
     top: 600px;
 }
 
 .title {
-    font-size: 60px;
+    font-size: 80px;
     color: #ADD8E6;
     position: absolute;
-    left: 50px;
-    top: 80px;
+    left: 100px;
+    top: 50px;
 }
 
 .content h6 {
@@ -626,7 +625,7 @@ h6 {
         transform: translate(400px, 0)
     }
 }
-
+/*fivePage style*/
 .titleZ {
     font-size: 80px;
     position: absolute;
@@ -691,7 +690,7 @@ h6 {
     font-size: 35px;
     opacity: 0.8;
 }
-
+/*sixPage style*/
 .over p {
     padding-top: 100px;
 }
